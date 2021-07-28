@@ -1,4 +1,4 @@
-# LYMPHOMA MICROENVIRONMENT ANALYSIS - README
+# :microscope: LYMPHOMA MICROENVIRONMENT ANALYSIS - README
 
 Welcome to my sc-RNAseq code, designed to be a straightforward and user-friendly pipeline that helps interpret and analyze key cell environments in a tissue sample. 
 It's 
