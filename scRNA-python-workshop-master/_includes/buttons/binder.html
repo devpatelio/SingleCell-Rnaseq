@@ -1,0 +1,7 @@
+{% if site.use_binder_button %}
+
+{% capture interact_icon_binder %}{{ site.images_url | relative_url }}/logo_binder.svg{% endcapture %}
+
+<a href="https://mybinder.org/v2/gh/chanzuckerberg/scRNA-python-workshop/master"><button class="interact-button" id="interact-button-binder"><img class="interact-button-logo" src="{{ interact_icon_binder }}" alt="Interact" />{{ site.binderhub_interact_text }}</button></a>
+
+{%- endif %}

@@ -1,0 +1,32 @@
+- header: Introduction
+- title: About the course
+  url: /intro/about
+- title: Setup and installation
+  url: /intro/setup
+- title: Workflow overview
+  url: /intro/overview
+
+- divider: true
+- header: Data preprocessing
+- title: Tabula muris
+  url: /preprocessing/00-tabula-muris
+- title: Quality control
+  url: /preprocessing/01-basic-qc
+- title: Normalization and PCA
+  url: /preprocessing/02-normalization
+
+- divider: true
+- header: Data analysis
+- title: Dimensionality reduction
+  url: analysis/03-dimensionality-reduction
+- title: Clustering
+  url: analysis/04-clustering
+- title: Differential expression
+  url: analysis/05-diffexp
+
+- divider: true
+- header: Exploratory analysis & advanced exercises
+- title: Exploration with cellxgene
+  url: exploration/06-exploratory
+- title: Advanced exercises
+  url: exploration/07-exercise
