@@ -20,7 +20,7 @@ These key features make it very promising, primarily because it has been very us
 
 This pipeline is an interactive, user-friendly visualization and analysis toolset which can be used to better analyze and interpret single-cell RNA sequencing data of a set of tissues, and then analyze different features of these cells such as their gene expression activity (transcriptome), protein interactions, and cell localization. 
 
-The program is designed to visualize and analyze sc-RNAseq data which ultimately looks at gene and cell activity for the individual types of cells in a microenvironment. This dataset is based off of Hodgkin's Lymphoma samples sequenced by 10x Genomics, and analyzed in the pipline which looks at a tumor microenvironment and the different kinds of cells there are (T-cells, CD4 vs CD8+ T Cells vs NKCs in a tissue, FOXP3+/CD3+/SIGLEC 1 T-cell -> the primary goal will be to find patterns and essentially ID different kinds of cells and try to identify whether or not the immune system of the body is actually killing off the tumor. 
+The program is designed to visualize and analyze sc-RNAseq data which ultimately looks at gene and cell activity for the individual types of cells in a microenvironment. This dataset is based off of Hodgkin's Lymphoma samples sequenced by 10x Genomics, and analyzed in the pipeline which looks at a tumor microenvironment and the different kinds of cells there are (T-cells, CD4 vs CD8+ T Cells vs NKCs in a tissue, FOXP3+/CD3+/SIGLEC 1 T-cell -> the primary goal will be to find patterns and essentially ID different kinds of cells and try to identify whether or not the immune system of the body is actually killing off the tumor. 
 
 Further Readings: 
 > [Analysis of scRNA-seq Data](https://scrnaseq-course.cog.sanger.ac.uk/website/index.html)
@@ -35,11 +35,11 @@ Further Readings:
 - 2000s, microarrays enabled systematic measurements of transcriptional changes → mRNAs labeled, loaded onto chip where each spot on chip was coated to catch mRNA of specific gene → color of spot indicates ratio of transcript
 - Bulk RNA sequencing made it much more feasible which transcriptional differences could be measured
     - quantification of gene expression
-    - comparitive transcriptomics
+    - comparative transcriptomics
 - limitations involve the inability to resolve heterogeneity
 - single cell also gives you dynamics of gene expression and cell identity, primarily because it can help you look at cell topology
-- goals of scRNA-seq are 1) measure distribution of expression levels for each gene across population of cells 2) measure transcirptional differnces across and within groups of cells 3) resolve single-cell heterogenity
-- applications involve characterization of cell and transcriptional composition of tissues (cell type changes and their correlatoin)
+- goals of scRNA-seq are 1) measure distribution of expression levels for each gene across population of cells 2) measure transcriptional differences across and within groups of cells 3) resolve single-cell heterogeneity
+- applications involve characterization of cell and transcriptional composition of tissues (cell type changes and their correlation)
 - evaluate developmental processes (see expression changes while undergoing differentiation)
 - evaluate how cancer evolution leads to mechanisms of therapeutic resistance
 
@@ -50,23 +50,23 @@ Further Readings:
 3. oil and water reaction has a single bead with barcode that bind to the specific mRNA of a single cell + done through cell where water and oils are displaced → you have a poisson distribution of beads and cells (proportion of concentration is based on concentration of cells and beads)
 4. cells are lysed, reverse transcriptase synthesizes cDNA and applied molecular identity, use pCR and then add sequencing adapters for sequencing and assembly (3'-5')
     - lysis part is flawed right now because mRNA molecules don't always bind to the beads, RT enzymes are known to be inefficient, and RT + PCR depend on specific transcript, making this more variable
-- onyl about 5% of mRNA is captured → UMI: total count of unique molculare identifies which are labelled on each mRNA with a unique barcode at the RT step
-    - UMI reduces amplification error → evaluation of performance found that 10x is one of the better ones → SUPeR-seq wth Accuracy of 0.95, 4 million copies of mRNA sequence in every cell
+- only about 5% of mRNA is captured → UMI: total count of unique molecular identifiers which are labelled on each mRNA with a unique barcode at the RT step
+    - UMI reduces amplification error → evaluation of performance found that 10x is one of the better ones → SUPeR-seq with Accuracy of 0.95, 4 million copies of mRNA sequence in every cell
 
 **Limitations:** 
 
 - low capture probability and data sparsity is a big problem → you can use BDRhapsody to limit the scope of experiment to a few hundred mRNAs
 - inability to analyze full-length transcriptomes → can use smartSEQ2
-- inability to resovle spatial information → where computation comes into play
+- inability to resolve spatial information → where computation comes into play
 - integrating with measurements in Microscopy, FACs, total_Seq, hashtag tech, etc.
 
 - preparing scRNAseq data for clustering → preprocessing: align and count UMIS
-- finding feature selection and do dimensionality reduction → you can visualize hereogeneity with t-SNE and UMAP
+- finding feature selection and do dimensionality reduction → you can visualize heterogeneity with t-SNE and UMAP
 - **HVGs for preprocessing**:
     - distinguish technical noise by looking at distribution of population of cells → HVGs are identified because they are interesting biological markers
     - PCA is then applied as a result
         - visualized using UMAP and t-SNE
-- Quality control → normalization → feauture selection → dimensionality reduction → cell-cell distances → unsupervised clustering
+- Quality control → normalization → feature selection → dimensionality reduction → cell-cell distances → unsupervised clustering
 
 **Computational challenges in scRNA-seq:** 
 
@@ -83,13 +83,13 @@ Further Readings:
 
 **My Project:** Single-Cell RNA Sequence Analysis (Downstream) w. Interactive UI for Hodgkin's Lymphoma, Dissociated Tumor: Targeted, Pan-Cancer Panel
 [Single-Cell Transcriptome Analysis Reveals Disease-Defining T-cell Subsets in the Tumor Microenvironment of Classic Hodgkin Lymphoma](https://pubmed.ncbi.nlm.nih.gov/31857391/)
-- cHL characterized by extensive microneivornment composed of different types of noncancerous normal immune cells → severla types of T cells, B cells, eosinophils, and marcophages, and rare populations of clonal malignant Hodgkin and Reed-Sternberg cells
+- cHL characterized by extensive microenvironment composed of different types of noncancerous normal immune cells → several types of T cells, B cells, eosinophils, and macrophages, and rare populations of clonal malignant Hodgkin and Reed-Sternberg cells
     - some findings support concept that HRS cells recruit immune cells to form tumor-supporting, regulatory tumor microenvironment (TME) with limited antitumor activity in cHL
     - complex interactions between HRS cells and TME remains partially understood → looking at symbiotic cellular cross-talk may lead to development of novel biomarkers and therapeutic approaches
 - immune-checkpoint inhibitors like PD-1 have shown dramatic efficacy in relapsed or refractory cHL, with overall response rate of 65-87% and durable remissions of 1.5 years
-    - remains unclear which cells are most important targets of immune-checkpoint inhibitors and which components are most relevant for immune-escpae phenotype in cHL
-- goal of this project is to characterize immune phenotype of the TME in cHL and identify important associations between immune cell types and respective clinilca outcome
-- key differentiator between lymphomas and tumors is that they are dervied from lymphocytes that progessionaly interact with other immune cells in ecosystem of microenvironment
+    - remains unclear which cells are most important targets of immune-checkpoint inhibitors and which components are most relevant for immune-escape phenotype in cHL
+- goal of this project is to characterize immune phenotype of the TIME in cHL and identify important associations between immune cell types and respective clinical outcome
+- key differentiator between lymphomas and tumors is that they are derived from lymphocytes that professionally interact with other immune cells in ecosystem of microenvironment
 
 
 ### System Requirements
@@ -156,8 +156,8 @@ You can simply clone the repository and run the primary *targeted-cancer-lymphom
     ##Now, you can switch the jupyter kernel to the conda environment
     ##If all else fails, install all error-libraries in the conda env 
     
-    >> (sc-rnaseq) conda install _package_name_
-    >> (sc-rnaseq) pip install _package_name_ 
+    >> (sc-rna seq) conda install _package_name_
+    >> (sc-rna seq) pip install _package_name_ 
     ```
 
 
@@ -168,7 +168,7 @@ You can simply clone the repository and run the primary *targeted-cancer-lymphom
     
     - [ ] Click on *Gene Expression - Feature/cell matrix* (raw or filtered)
     - [ ] Click on *Gene Expression' - Feature/cell matrix HDF5* (raw or filtered)
-    - [ ] OPTIONAL Download any metadata such as cells per tag, dataset summary, etc.
+    - [ ] OPTIONAL: Download any metadata such as cells per tag, dataset summary, etc.
 
     - [ ] Unzip tsv.gz files, if ERROR: 79, install [The Unarchiver](https://theunarchiver.com/) 
           and use the application to unzip the files
@@ -178,7 +178,7 @@ You can simply clone the repository and run the primary *targeted-cancer-lymphom
 
 3. Divide By 0s: 
     Although this should never be the case thanks to error handling, check if your mitochondrial gene
-    plot is at 0 and if the error is being throw in cell 7. If so, you must make sure that your Error 
+    plot is at 0 and if the error is being thrown in cell 7. If so, you must make sure that your Error 
     Threshold Input is greater than 0.
 
     Otherwise, you must make an informed visual choice to determine the most effective way to filter 
@@ -196,7 +196,7 @@ You can simply clone the repository and run the primary *targeted-cancer-lymphom
 
 5. TSNE, UMAP, or PCA Stuck
     In most cases, this will take more than 6-10 seconds depending on your computer internals. To maximize
-    your calculations, you can add the flag `n_pcs=14` to `sc.tl__ ()` change the number of pcs being used.
+    your calculations, you can add the flag `n_pcs=14` to `sc.tl__ ()` to change the number of PCs being used.
 
     In other cases, it would be a good idea to reduce the total data you've passed through or it's just too 
     big. You can track how much is completed by changing the learning_rate parameter, but should always be 
